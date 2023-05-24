@@ -6,7 +6,7 @@ function getRandomNumber() {
 // Add comments to explain what this function does. You're meant to use Google!
 function combine2Words(word1, word2) {
   return word1.concat(word2);
-}
+} //The concat() method concatenates the string arguments to the calling string and returns a new string.
 
 function concatenate(firstWord, secondWord, thirdWord) {
   // Write the body of this function to concatenate three words together.
