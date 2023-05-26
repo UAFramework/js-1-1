@@ -43,10 +43,69 @@
     Very doubtful.
 */
 
+const answers = [
+  [
+    'very positive',
+    [
+      'It is certain.',
+      'It is decidedly so.',
+      'Without a doubt.',
+      'Yes - definitely.',
+      'You may rely on it.',
+    ],
+  ],
+  [
+    'positive',
+    [
+      'As I see it, yes.',
+      'Most likely.',
+      'Outlook good.',
+      'Yes.',
+      'Signs point to yes.',
+    ],
+  ],
+
+  [
+    'negative',
+    [
+      'Reply hazy, try again.',
+      'Ask again later.',
+      'Better not tell you now.',
+      'Cannot predict now.',
+      'Concentrate and ask again.',
+    ],
+  ],
+  [
+    'very negative',
+    [
+      "Don't count on it.",
+      "My reply is no.",
+      'My sources say no.',
+      'Outlook not so good.',
+      'Very doubtful.',
+    ],
+  ],
+];
+
+function getRandomNumber(max) {
+  return Math.floor(Math.random() * max);
+}
+
 // This should log "The ball has shaken!"
 // and return the answer.
 function shakeBall() {
-  //Write your code in here
+  console.log('The ball has shaken!');
+  return answers[getRandomNumber(3)][1][getRandomNumber(5)];
+}
+
+function inArray(needle, haystack) {
+    for(var i = 0; i < haystack.length; i++) {
+        console.log(haystack[i] + '    ' + needle);
+        if(haystack[i] === needle) {
+          return true;
+        }
+    }
+    return false;
 }
 
 /* 
@@ -59,7 +118,13 @@ function shakeBall() {
   This function should expect to be called with any value which was returned by the shakeBall function.
 */
 function checkAnswer(answer) {
-  //Write your code in here
+  for (var i = 0; i < answers.length; i++) {
+    var key = answers[i][0];
+    var values = answers[i][1];
+    if (inArray(answer, values)) {
+      return key;
+    }
+  }
 }
 
 /* 
