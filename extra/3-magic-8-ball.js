@@ -43,49 +43,43 @@
     Very doubtful.
 */
 
-const answers = [
+const answers = {
+  'very positive':
   [
-    'very positive',
-    [
-      'It is certain.',
-      'It is decidedly so.',
-      'Without a doubt.',
-      'Yes - definitely.',
-      'You may rely on it.',
-    ],
-  ],
-  [
-    'positive',
-    [
-      'As I see it, yes.',
-      'Most likely.',
-      'Outlook good.',
-      'Yes.',
-      'Signs point to yes.',
-    ],
+    'It is certain.',
+    'It is decidedly so.',
+    'Without a doubt.',
+    'Yes - definitely.',
+    'You may rely on it.',
   ],
 
+  'positive':
   [
-    'negative',
-    [
-      'Reply hazy, try again.',
-      'Ask again later.',
-      'Better not tell you now.',
-      'Cannot predict now.',
-      'Concentrate and ask again.',
-    ],
+    'As I see it, yes.',
+    'Most likely.',
+    'Outlook good.',
+    'Yes.',
+    'Signs point to yes.',
   ],
+
+  'negative':
   [
-    'very negative',
-    [
-      "Don't count on it.",
-      "My reply is no.",
-      'My sources say no.',
-      'Outlook not so good.',
-      'Very doubtful.',
-    ],
+    'Reply hazy, try again.',
+    'Ask again later.',
+    'Better not tell you now.',
+    'Cannot predict now.',
+    'Concentrate and ask again.',
   ],
-];
+  'very negative':
+  [
+    "Don't count on it.",
+    "My reply is no.",
+    'My sources say no.',
+    'Outlook not so good.',
+    'Very doubtful.',
+  ],
+};
+
 
 function getRandomNumber(max) {
   return Math.floor(Math.random() * max);
@@ -95,17 +89,8 @@ function getRandomNumber(max) {
 // and return the answer.
 function shakeBall() {
   console.log('The ball has shaken!');
-  return answers[getRandomNumber(3)][1][getRandomNumber(5)];
-}
-
-function inArray(needle, haystack) {
-    for(var i = 0; i < haystack.length; i++) {
-        console.log(haystack[i] + '    ' + needle);
-        if(haystack[i] === needle) {
-          return true;
-        }
-    }
-    return false;
+  var values = Object.values(answers).flat();
+  return values[getRandomNumber(values.length)];
 }
 
 /* 
@@ -118,13 +103,13 @@ function inArray(needle, haystack) {
   This function should expect to be called with any value which was returned by the shakeBall function.
 */
 function checkAnswer(answer) {
-  for (var i = 0; i < answers.length; i++) {
-    var key = answers[i][0];
-    var values = answers[i][1];
-    if (inArray(answer, values)) {
+  for (const [key, array] of Object.entries(answers)) {
+    var found = array.find(val => val === answer);
+    if (found === answer) {
       return key;
     }
   }
+  console.log('Error: Bad request');
 }
 
 /* 
