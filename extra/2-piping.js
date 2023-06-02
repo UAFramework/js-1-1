@@ -31,7 +31,7 @@ function format(a) {
 const startingValue = 2;
 
 // Why can this code be seen as bad practice? Comment your answer.
-let badCode = "£" + (startingValue + 10) * 2;
+let badCode = "£" + ((startingValue + 10) * 2).toString();
 
 /* BETTER PRACTICE */
 
