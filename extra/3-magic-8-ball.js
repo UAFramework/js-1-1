@@ -45,8 +45,46 @@
 
 // This should log "The ball has shaken!"
 // and return the answer.
+
+const answers = {
+  "very positive" : [
+  "It is certain.",
+  "It is decidedly so.",
+  "Without a doubt.",
+  "Yes - definitely.",
+  "You may rely on it."
+  ],
+
+  "positive" : [
+  "As I see it, yes.",
+  "Most likely.",
+  "Outlook good.",
+  "Yes.",
+  "Signs point to yes."
+  ],
+
+  "negative" : [
+  "Reply hazy, try again.",
+  "Ask again later.",
+  "Better not tell you now.",
+  "Cannot predict now.",
+  "Concentrate and ask again."
+  ],
+
+  "very negative" : [
+  "Don't count on it.",
+  "My reply is no.",
+  "My sources say no.",
+  "Outlook not so good.",
+  "Very doubtful."
+  ]
+};
+
 function shakeBall() {
-  //Write your code in here
+  console.log("The ball has shaken!");
+  const allArraysAnswers = answers["very positive"].concat(answers["positive"], answers["negative"], answers["very negative"]);
+  const randomIndex = Math.floor(Math.random() * allArraysAnswers.length);
+  return allArraysAnswers[randomIndex];
 }
 
 /* 
@@ -59,9 +97,24 @@ function shakeBall() {
   This function should expect to be called with any value which was returned by the shakeBall function.
 */
 function checkAnswer(answer) {
-  //Write your code in here
-}
+  for(key in answers) {
+    if(answers[key].includes(answer)) {
+         return key;
+    }
+ }
+/*  this was my first uncomplited version
 
+    if (veryPositiveAnswers.includes(answer)) {
+    return "very positive";
+  } else if (positiveAnswers.includes(answer)) {
+    return "positive";
+  } else if (negativeAnswers.includes(answer)) {
+    return "negative";
+  } else {
+    return "very negative";
+  }*/
+}
+//
 /* 
 ==================================
 ======= TESTS - DO NOT MODIFY =====
