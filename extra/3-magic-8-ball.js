@@ -45,44 +45,44 @@
 
 // This should log "The ball has shaken!"
 // and return the answer.
+
+const answers = {
+  "very positive" : [
+  "It is certain.",
+  "It is decidedly so.",
+  "Without a doubt.",
+  "Yes - definitely.",
+  "You may rely on it."
+  ],
+
+  "positive" : [
+  "As I see it, yes.",
+  "Most likely.",
+  "Outlook good.",
+  "Yes.",
+  "Signs point to yes."
+  ],
+
+  "negative" : [
+  "Reply hazy, try again.",
+  "Ask again later.",
+  "Better not tell you now.",
+  "Cannot predict now.",
+  "Concentrate and ask again."
+  ],
+
+  "very negative" : [
+  "Don't count on it.",
+  "My reply is no.",
+  "My sources say no.",
+  "Outlook not so good.",
+  "Very doubtful."
+  ]
+};
+
 function shakeBall() {
   console.log("The ball has shaken!");
-
-  const answers = {
-    veryPositiveAnswers : [
-    "It is certain.",
-    "It is decidedly so.",
-    "Without a doubt.",
-    "Yes - definitely.",
-    "You may rely on it."
-    ],
-  
-    positiveAnswers : [
-    "As I see it, yes.",
-    "Most likely.",
-    "Outlook good.",
-    "Yes.",
-    "Signs point to yes."
-    ],
-  
-    negativeAnswers : [
-    "Reply hazy, try again.",
-    "Ask again later.",
-    "Better not tell you now.",
-    "Cannot predict now.",
-    "Concentrate and ask again."
-    ],
-  
-    veryNegativeAnswers : [
-    "Don't count on it.",
-    "My reply is no.",
-    "My sources say no.",
-    "Outlook not so good.",
-    "Very doubtful."
-    ]
-  };
-  const allArraysAnswers = answers.veryPositiveAnswers.concat(answers.positiveAnswers, answers.negativeAnswers, answers.veryNegativeAnswers);
-
+  const allArraysAnswers = answers["very positive"].concat(answers["positive"], answers["negative"], answers["very negative"]);
   const randomIndex = Math.floor(Math.random() * allArraysAnswers.length);
   return allArraysAnswers[randomIndex];
 }
@@ -97,39 +97,14 @@ function shakeBall() {
   This function should expect to be called with any value which was returned by the shakeBall function.
 */
 function checkAnswer(answer) {
-  const veryPositiveAnswers = [
-    "It is certain.",
-    "It is decidedly so.",
-    "Without a doubt.",
-    "Yes - definitely.",
-    "You may rely on it."
-  ];
+  for(key in answers) {
+    if(answers[key].includes(answer)) {
+         return key;
+    }
+ }
+/*  this was my first uncomplited version
 
-  const positiveAnswers = [
-    "As I see it, yes.",
-    "Most likely.",
-    "Outlook good.",
-    "Yes.",
-    "Signs point to yes."
-  ];
-
-  const negativeAnswers = [
-    "Reply hazy, try again.",
-    "Ask again later.",
-    "Better not tell you now.",
-    "Cannot predict now.",
-    "Concentrate and ask again."
-  ];
-
-  const veryNegativeAnswers = [
-    "Don't count on it.",
-    "My reply is no.",
-    "My sources say no.",
-    "Outlook not so good.",
-    "Very doubtful."
-  ];
-
-  if (veryPositiveAnswers.includes(answer)) {
+    if (veryPositiveAnswers.includes(answer)) {
     return "very positive";
   } else if (positiveAnswers.includes(answer)) {
     return "positive";
@@ -137,9 +112,9 @@ function checkAnswer(answer) {
     return "negative";
   } else {
     return "very negative";
-  }
+  }*/
 }
-//npm test -- --testPathPattern extra/3-magic-8-ball.js
+//
 /* 
 ==================================
 ======= TESTS - DO NOT MODIFY =====
