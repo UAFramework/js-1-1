@@ -45,9 +45,8 @@
 
 // This should log "The ball has shaken!"
 // and return the answer.
-function shakeBall() {
-  //Write your code in here
-}
+const allAnswers = [];
+
 
 /* 
   This function should say whether the answer it is given is
@@ -58,7 +57,67 @@ function shakeBall() {
 
   This function should expect to be called with any value which was returned by the shakeBall function.
 */
+ const answers={
+    "very positive": [
+       "It is certain.",
+       "It is decidedly so.",
+       "Without a doubt.",
+       "Yes - definitely.",
+       "You may rely on it."
+  ],
+    "positive": [ 
+       "As I see it, yes.",
+       "Most likely.",
+       "Outlook good.",
+       "Yes.",
+       "Signs point to yes."
+  ],
+    "negative": [
+       "Reply hazy, try again.",
+       "Ask again later.",
+       "Better not tell you now.",
+       "Cannot predict now.",
+       "Concentrate and ask again."
+  ],
+    "very negative": [
+       "Dont count on it.",
+       "My reply is no.",
+       "My sources say no.",
+       "Outlook not so good.", 
+       "Very doubtful."
+  ]
+};
+ 
+
+ for(arr of Object.values(answers)) {
+  for(answer of arr) {
+    const allAnswers = [];
+    allAnswers[allAnswers.length] = answer;
+  }
+ }
+
+
+
+function shakeBall(answer) {
+  let randomIndex = Math.floor(Math.random()*allAnswers.length);
+  let randomAnswer = allAnswers[randomIndex];
+  allAnswers.splice(randomIndex, 1);
+  for(key in answers){
+  for(answer of arr){
+    allAnswers[allAnswers.length] = answer;
+  }
+}
+  console.log(randomAnswer);
+  //Write your code in here
+}
 function checkAnswer(answer) {
+ for(key in answers) {
+  if(answers[key].includes(answer)){
+    return key;
+  }
+ }
+  
+ 
   //Write your code in here
 }
 
