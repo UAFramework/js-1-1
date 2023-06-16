@@ -1,16 +1,16 @@
-// Add comments to explain what this function does. You're meant to use Google!
+// the getRandomNumber function allows you to get a random number in a given range.
 function getRandomNumber() {
   return Math.random() * 10;
 }
 
-// Add comments to explain what this function does. You're meant to use Google!
-function combine2Words(word1, word2) {
-  return word1.concat(word2);
+// The combine2Words function combines two words into one line
+function combine2Words(word1, word2, word3) {
+  return word1 + "" + word2 + "" + word3;
 }
 
 function concatenate(firstWord, secondWord, thirdWord) {
-  // Write the body of this function to concatenate three words together.
-  // Look at the test case below to understand what this function is expected to return.
+  return firstWord + " " + secondWord + " " + String(thirdWord);
+  // // I use the String() function to explicitly convert the numeric value of thirdWord to a string before concatenating. The function concatenate with this three words into one line
 }
 
 /* 
