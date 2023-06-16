@@ -18,8 +18,8 @@ function convertToUSD(price) {
 */
 
 function convertToBRL(price) {
-  const BRL = (price * 0.99 * 5.7).toFixed(2);
- return Number(BRL);
+  const BRL = (price * 0.99 * 5.7);
+ return Math.round((BRL * 100)/100);
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
