@@ -36,8 +36,8 @@ let badCode = `£${(startingValue + 10) * 2}`;
 
   
 /* BETTER PRACTICE */
-
-let goodCode = format(multiply(startingValue + 10, 2));
+let sum = startingValue +10;
+let goodCode = format(multiply(sum, 2));
 
 
 /* ======= TESTS - DO NOT MODIFY ===== 

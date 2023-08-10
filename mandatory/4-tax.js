@@ -7,8 +7,8 @@
 
 function calculateSalesTax(salesTax) {
   let taxRate = 20;
-  let calculateSalesTax = salesTax * (1 + taxRate / 100);
-  return calculateSalesTax;
+  let priceWithTax = salesTax * 1.2;
+  return priceWithTax;
 }
 
 /*
@@ -22,9 +22,8 @@ function calculateSalesTax(salesTax) {
 */
 
 function addTaxAndFormatCurrency(price) {
-  let taxRate = 20;
-  let priceWithTax = price * (1 + taxRate / 100);
-        return '£'+ priceWithTax.toFixed(2);
+  let priceWithTax = price * 1.2;
+  return '£'+ priceWithTax.toFixed(2);
 }
 
 /* 
