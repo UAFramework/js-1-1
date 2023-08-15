@@ -19,7 +19,7 @@ function convertToUSD(priceGBP) {
 function convertToBRL(priceGBP) {
   let priceBRL = priceGBP * 5.7 * 0.99;
   return priceBRL.toFixed(2); 
-       }
+  }
 
 
 /* ======= TESTS - DO NOT MODIFY ===== 
